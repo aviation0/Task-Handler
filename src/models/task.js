@@ -9,7 +9,14 @@ const taskSchema = new mongoose.Schema({
   isCompleted: {
     type: Boolean,
     default: false
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   }
+}, {
+  timestamps: true
 });
 
 const Task = new mongoose.model("Task", taskSchema);
